@@ -31,14 +31,14 @@ function operate(){
 
     if (operand == "*"){multiply(number1, number2)}
 
-    if (operand == "/"){add(number1, number2)}
+    if (operand == "/"){divide(number1, number2)}
 }
 
 let number1 = 4;
 
 let number2 = 2;
 
-let operand;
+let operand = "/";
 
 let solution;
 
@@ -51,6 +51,8 @@ let solution;
 //multiply(number1, number2);
 
 //divide(number1, number2);
+
+operate(number1, number2, operand);
 
 
 console.log(solution)
