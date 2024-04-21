@@ -12,22 +12,59 @@ h1 {
 .buttonContainerTop {
     display: flex;
     justify-content: center;
+    
 }
 
 
 .buttonContainerMiddle {
     display: flex;
     justify-content: center;
+    
 }
 
 .buttonContainerBottom {
     display: flex;
     justify-content: center;
+    
 }
 
-
-/*.containerKeys {
+.containerKeys {
     display: flex;
-    justify-content: center;
+    
+    flex-direction: column;
+}
+
+
+
+.operandPlus {
+    height: 106px;
+    width: 50px;
+    margin: 3px;
 
 }
+
+.operandEquals {
+    height: 106px;
+    width: 50px;
+    margin: 3px;
+
+}
+
+.digit0 {
+    height: 50px;
+    width: 110px;
+    margin: 3px;
+
+
+}
+
+
+
+button {
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+}
+
+
+
