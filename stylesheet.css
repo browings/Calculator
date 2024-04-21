@@ -1,7 +1,33 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+
+.display {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainerTop {
+    display: flex;
+    justify-content: center;
+}
+
+
 .buttonContainerMiddle {
     display: flex;
+    justify-content: center;
 }
 
 .buttonContainerBottom {
     display: flex;
+    justify-content: center;
+}
+
+
+/*.containerKeys {
+    display: flex;
+    justify-content: center;
+
 }
