@@ -36,7 +36,14 @@ function operate(){
 
 function populateDisplay(value){
 display = display+value;
+screen.textContent = display;
 return display
+}
+
+function clearScreen(){
+    display = ""
+    screen.textContent = ""    
+    return display
 }
 
 let number1 = 4;
@@ -49,6 +56,8 @@ let solution;
 
 let display = "";
 
+const screen = document.querySelector(".display");
+
 //querySelector to all buttons
 
 const buttons = document.querySelectorAll(".digit, .digit0, .operand, .operandPlus, .equals, .clear")
@@ -56,15 +65,19 @@ const buttons = document.querySelectorAll(".digit, .digit0, .operand, .operandPl
 //addEventlistener click
 
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      if (button.className === "digit" || "digit0" || "operand" || "operandPlus"){populateDisplay(button.textContent)}
+    button.addEventListener("click", function () {
+      if (button.className == "digit"){populateDisplay(button.textContent)};
 
-      if (button.className === "equals"){/*evaluate numbers and operands*/ console.log("=")}
+      if (button.className == "digit0"){populateDisplay(button.textContent)};
 
-      if (button.className === "clear"){clearScreen(); console.log("clear")}
+      if (button.className == "operand"){populateDisplay(button.textContent)};   
 
-      else;
-    });
+      if (button.className == "operandPlus"){populateDisplay(button.textContent)}; 
+      
+      if (button.className == "equals"){/*evaluate numbers and operands*/ console.log("=")};
+      
+      if (button.className == "clear"){clearScreen(); console.log("clear")}
+           })
   });
 
 //function value --> populateDisplay() or C function --> clearScreen()
