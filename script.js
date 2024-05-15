@@ -25,24 +25,52 @@ function divide(){
 }
 
 function operate(){
-    if (operand == "+"){add(number1, number2)}
+    /*if (operand == "+"){add(number1, number2)}
 
     if (operand == "-"){substract(number1, number2)}
 
     if (operand == "*"){multiply(number1, number2)}
 
-    if (operand == "/"){divide(number1, number2)}
+    if (operand == "/"){divide(number1, number2)}*/
+
+
 }
 
 function populateDisplay(value){
 display = display+value;
 screen.textContent = display;
+
 return display
+
 }
 
+function equals(){
+    
+   
+    let displayArr = display.split("");
+    let i=0;
+    displayArr.forEach ((element) => {
+        
+            
+        if (element == "+"||element == "-"|| element == "/"|| element == "*" )
+             {i++; calculationArr[i] = element;
+               i++; return i}
+
+        else   {if (calculationArr[i] == undefined) {calculationArr[i]= ""; calculationArr[i] += element; calculationArr[i] = parseInt(calculationArr[i]);}
+                    else calculationArr[i] += element; calculationArr[i] = parseInt(calculationArr[i]);
+                    return i}
+         
+    });
+
+    //solution = calculationArr.map
+
+    return calculationArr
+}
+
+
 function clearScreen(){
-    display = ""
-    screen.textContent = ""    
+    display = "" ;
+    screen.textContent = "" ;
     return display
 }
 
@@ -52,7 +80,9 @@ let number2 = 2;
 
 let operand = "/";
 
-let solution;
+let calculationArr = [""];
+
+let solution = 0;
 
 let display = "";
 
@@ -74,7 +104,7 @@ buttons.forEach((button) => {
 
       if (button.className == "operandPlus"){populateDisplay(button.textContent)}; 
       
-      if (button.className == "equals"){/*evaluate numbers and operands*/ console.log("=")};
+      if (button.className == "equals"){equals()};
       
       if (button.className == "clear"){clearScreen(); console.log("clear")}
            })
