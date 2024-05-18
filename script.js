@@ -56,11 +56,16 @@ function equals(){
              {i++; calculationArr[i] = element;
                i++; return i}
 
-        else   {if (calculationArr[i] == undefined) {calculationArr[i]= ""; calculationArr[i] += element; calculationArr[i] = parseInt(calculationArr[i]);}
-                    else calculationArr[i] += element; calculationArr[i] = parseInt(calculationArr[i]);
+        else   {if (calculationArr[i] == undefined) {calculationArr[i]= ""; calculationArr[i] += element;} //calculationArr[i] = parseFloat(calculationArr[i]);}
+                    else 
+                    calculationArr[i] += element; //calculationArr[i] = parseFloat(calculationArr[i]);
                     return i}
          
     });
+
+    /*calculationArr.forEach ((element) => {
+        if (element.includes("1")) {element = parseFloat(calculationArr[i]);return element }
+    })*/
     //check arr if "*" or "/"   yes = operate with element -1 and element +1; pop out all 3 elements and insert solution
     //                          no = next element
     
@@ -68,8 +73,8 @@ function equals(){
                 
         for (let i= 0; i < calculationArr.length; i++){
         
-                                                    if (calculationArr[i] == "*") {number1= calculationArr[i-1];number2= calculationArr[i+1]; calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, multiply(number1,number2)); break }
-                                                    if (calculationArr[i] == "/") {number1= calculationArr[i-1];number2= calculationArr[i+1]; calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, divide(number1,number2)); break }
+                                                    if (calculationArr[i] == "*") {number1= parseFloat(calculationArr[i-1]);number2= parseFloat(calculationArr[i+1]); calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, multiply(number1,number2)); break }
+                                                    if (calculationArr[i] == "/") {number1= parseFloat(calculationArr[i-1]);number2= parseFloat(calculationArr[i+1]); calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, divide(number1,number2)); break }
                                                    
                                                 }
       }
@@ -81,14 +86,14 @@ function equals(){
     while ( ((calculationArr.filter((element) => element == "+" || element == "-")).length) > 0){
        
         for (let i= 0; i < calculationArr.length; i++){
-                                                    if (calculationArr[i] == "+") {number1= calculationArr[i-1];number2= calculationArr[i+1]; calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, add(number1,number2)); break }
-                                                    if (calculationArr[i] == "-") {number1= calculationArr[i-1];number2= calculationArr[i+1]; calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, substract(number1,number2)); break }
+                                                    if (calculationArr[i] == "+") {number1= parseFloat(calculationArr[i-1]);number2= parseFloat(calculationArr[i+1]); calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, add(number1,number2)); break }
+                                                    if (calculationArr[i] == "-") {number1= parseFloat(calculationArr[i-1]);number2= parseFloat(calculationArr[i+1]); calculationArr.splice(i-1,3); calculationArr.splice(i-1,0, substract(number1,number2)); break }
                                                    
                                                 }
 
       }
     
-
+    screen.textContent = calculationArr ;
 
     console.log(calculationArr)
 }
@@ -97,6 +102,7 @@ function equals(){
 function clearScreen(){
     display = "" ;
     screen.textContent = "" ;
+    calculationArr = [""];
     return display
 }
 
