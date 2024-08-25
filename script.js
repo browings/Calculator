@@ -37,6 +37,23 @@ function operate(){
 }
 
 function populateDisplay(value){
+let actualoperandArr = (display+value).split("");
+
+let dotYesNo = 0;
+
+for (let i= actualoperandArr.length-1; i > 0; i--){
+         
+        if (actualoperandArr[i] == ".") {dotYesNo = dotYesNo+1; if (dotYesNo > 1) {value = ""}}
+        if (actualoperandArr[i] == "+") {dotYesNo = 0}
+        if (actualoperandArr[i] == "-") {dotYesNo = 0}
+        if (actualoperandArr[i] == "*") {dotYesNo = 0}
+        if (actualoperandArr[i] == "/") {dotYesNo = 0}
+
+        else {} 
+
+}
+
+
 display = display+value;
 screen.textContent = display;
 
@@ -117,6 +134,8 @@ let calculationArr = [""];
 let solution = 0;
 
 let display = "";
+
+
 
 const screen = document.querySelector(".display");
 
